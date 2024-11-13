@@ -19,3 +19,15 @@ morse2alpha = {value:key for key,value in alpha2morse.items()}
 decoded2 = ' '.join(morse2alpha.get(i) for i in decoded.split())
 
 MAPPA PIU CONTRATTA 
+with open("/home/alberto/Desktop/2021-2022/ciphertext.txt", "r") as ciphertext_file:
+    ciphertext = ciphertext_file.read().lower()
+
+trans = str.maketrans(
+    "abcdefghijklmnopqrstuvwxyz",
+    "IMZOPKSTEBWGNRVL_UJAYHF_DC",
+)
+
+print(ciphertext.translate(trans))
+
+
+
