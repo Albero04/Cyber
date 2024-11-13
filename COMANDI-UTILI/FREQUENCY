@@ -1,0 +1,11 @@
+ANALIZZA LA FREQUENZA DI OGNI CARATTERE DELLA FUNZIONE
+chr2freq = {}
+for c in puzzle:    
+    if c not in chr2freq:       
+        chr2freq[c] = 1    
+    else:      
+        chr2freq[c] += 1  
+
+# sort the dictionary by value in descending order and store it in a list of tuples (key, value)
+sorted_x = sorted(chr2freq.items(), key=lambda kv: kv[1], reverse = True)
+print(sorted_x)
