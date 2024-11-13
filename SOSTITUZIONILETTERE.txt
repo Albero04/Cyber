@@ -1,0 +1,14 @@
+UTILE PER FARE SOSTITUZIONI DI LETTERE
+
+
+
+with open("/home/alberto/Desktop/2021-2022/ciphertext.txt", "r") as ciphertext_file:
+    ciphertext = ciphertext_file.read().lower()
+
+trans = str.maketrans(
+    "abcdefghijklmnopqrstuvwxyz",
+    "IMZOPKSTEBWGNRVL_UJAYHF_DC",
+)
+
+print(ciphertext.translate(trans))
+
