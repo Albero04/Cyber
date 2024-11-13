@@ -18,3 +18,26 @@ DECODIFICA DA BASE64 AD ASCII
     import base64decoded
     decoded= base64.b64decode(result).decode('ascii')
     print(decoded) 
+scritta come funzione
+        def base64tostring(text):   
+          return base64.b64decode(text).decode('utf-8', errors="ignore")
+
+CAMBIA UN SINGOLO ELEMENTO DELLA STRINGA
+voc = {'K': 'i'}
+dec = ' '.join(c if c not in voc else voc[c] for c in puzzle)
+print(voc, '\n' ,dec)
+
+SI PUO FARE ANCHE COSI 
+voc['F'] = 'a'
+dec = ' '.join(c if c not in voc else voc[c] for c in puzzle)
+print(voc, '\n' ,dec)
+
+
+
+
+
+
+
+
+
+
