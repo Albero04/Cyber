@@ -1,0 +1,6 @@
+FUNZIONE PER DECODIFICARE HEX TO DECIMAL
+res = []
+for i in range(len(text)//2): 
+      curr = text[i*2:(i+1)*2] 
+      res.append(int(curr, 16))
+return res
