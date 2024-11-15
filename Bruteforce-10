@@ -1,0 +1,6 @@
+import requests
+import string
+alphabet = string.ascii_letters + string.digits + string.punctuation 
+for character in alphabet:   
+    r = requests.get(f"http://localhost:124/?pass={character}", headers={"User-Agent": character})    
+    print(r.text)
