@@ -1,3 +1,5 @@
+Ci sono anche nel file assembly
 jz  --> 74
 jnz --> 75
 jmp --> EB
+Nop --> 90
