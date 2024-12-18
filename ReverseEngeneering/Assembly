@@ -28,18 +28,21 @@ In assembly language programming, functions are often low-level operations that 
     Purpose: Causes an unconditional jump to a target address or label in the program.
     Syntax: JMP target
     Example: JMP loop_start – Jump to the loop_start label.
+    Opcode: most of times its EB and its used for a short jump, there are varius others opcode tho.
 
 6. JE / JZ (Jump if Equal / Jump if Zero)
 
     Purpose: Jumps to the target address if the zero flag is set (usually from a comparison or subtraction).
     Syntax: JE target or JZ target
     Example: JE target_label – Jump to target_label if the zero flag is set (i.e., the two operands were equal).
+    Opcode: 74 for a short jump, this is the most used type of jz.
 
 7. JNE / JNZ (Jump if Not Equal / Jump if Not Zero)
 
     Purpose: Jumps to the target address if the zero flag is cleared (i.e., the operands were not equal).
     Syntax: JNE target or JNZ target
     Example: JNE not_equal_label – Jump to not_equal_label if the zero flag is not set.
+    Opcode: 75 for a short jump, this is the most used type of jnz.
 
 8. CALL (Call Procedure)
 
@@ -118,6 +121,7 @@ In assembly language programming, functions are often low-level operations that 
     Purpose: The NOP instruction does nothing and is often used to create small delays or as a filler for instruction alignment.
     Syntax: NOP
     Example: NOP – This instruction does not affect registers or flags.
+    Opcode: 90
 
 21. INT (Interrupt)
 
@@ -135,3 +139,20 @@ In assembly language programming, functions are often low-level operations that 
 
     Assembly languages for x86 systems (e.g., using the x87 FPU) often include instructions like FADD, FSUB, FMUL, etc., for performing floating-point arithmetic operations. These instructions work similarly to regular ADD, SUB, MUL, but with floating-point numbers.
     Example: FADD ST(0), ST(1) – Add the value in ST(1) to ST(0) in the FPU stack.
+24. SAR (Shift Arithmetic Right)
+
+    Purpose: Shifts the bits of a value to the right, preserving the sign (most significant bit) for signed numbers. This is known as an arithmetic right shift.
+    Syntax: SAR destination, count
+    Opcode: D1 (for 1-byte shifts), D3 (for 2-byte shifts)
+    Example: SAR AX, 1 – Shifts the value in AX right by 1 bit, preserving the sign bit.
+    Effect: Divides signed numbers by powers of 2 while maintaining their sign (sign extension). For negative numbers, the MSB (sign bit) is replicated into the shifted-in positions.
+    Example: If AX contains 0xFFFD (signed -3), after SAR AX, 1, AX will contain 0xFFFF (signed -2).
+
+25. LEA (Load Effective Address)
+
+    Purpose: Loads the effective address of a memory operand (i.e., the result of the address calculation) into a register, without actually accessing the memory content at that address.
+    Syntax: LEA destination, source
+    Opcode: 8D (for general addressing modes)
+    Example: LEA AX, [BX+SI*2] – Loads the address calculated by BX + SI * 2 into AX, not the value at that address.
+    Effect: Useful for computing addresses in indexed or pointer-based calculations, without dereferencing the memory or loading the data.
+    Example: If BX = 0x10 and SI = 0x4, after LEA AX, [BX+SI*2], AX will contain 0x18 (the computed address 0x10 + 0x8).
