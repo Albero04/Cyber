@@ -1,0 +1,137 @@
+In assembly language programming, functions are often low-level operations that directly correspond to machine instructions or a set of machine instructions designed to perform a specific task. Here are the meanings of some of the most commonly used assembly functions (or operations) across various architectures (e.g., x86, ARM, MIPS):
+1. MOV (Move)
+
+    Purpose: Copies data from one location to another (register to register, memory to register, etc.).
+    Syntax: MOV destination, source
+    Example: MOV AX, BX – Copy the value of register BX into register AX.
+
+2. ADD (Addition)
+
+    Purpose: Adds two values and stores the result in the destination operand.
+    Syntax: ADD destination, source
+    Example: ADD AX, BX – Add the value of BX to AX and store the result in AX.
+
+3. SUB (Subtraction)
+
+    Purpose: Subtracts the source operand from the destination operand and stores the result in the destination.
+    Syntax: SUB destination, source
+    Example: SUB AX, BX – Subtract the value of BX from AX and store the result in AX.
+
+4. CMP (Compare)
+
+    Purpose: Compares two operands by subtracting the second operand from the first (without storing the result). The status flags (zero, carry, etc.) are updated based on the result.
+    Syntax: CMP operand1, operand2
+    Example: CMP AX, BX – Subtract BX from AX and set flags accordingly.
+
+5. JMP (Jump)
+
+    Purpose: Causes an unconditional jump to a target address or label in the program.
+    Syntax: JMP target
+    Example: JMP loop_start – Jump to the loop_start label.
+
+6. JE / JZ (Jump if Equal / Jump if Zero)
+
+    Purpose: Jumps to the target address if the zero flag is set (usually from a comparison or subtraction).
+    Syntax: JE target or JZ target
+    Example: JE target_label – Jump to target_label if the zero flag is set (i.e., the two operands were equal).
+
+7. JNE / JNZ (Jump if Not Equal / Jump if Not Zero)
+
+    Purpose: Jumps to the target address if the zero flag is cleared (i.e., the operands were not equal).
+    Syntax: JNE target or JNZ target
+    Example: JNE not_equal_label – Jump to not_equal_label if the zero flag is not set.
+
+8. CALL (Call Procedure)
+
+    Purpose: Calls a subroutine (procedure) by pushing the return address onto the stack and jumping to the target address.
+    Syntax: CALL target
+    Example: CALL subroutine – Call the subroutine located at the subroutine label.
+
+9. RET (Return)
+
+    Purpose: Returns from a subroutine, typically by popping the return address off the stack and jumping to it.
+    Syntax: RET
+    Example: RET – Return from the current procedure.
+
+10. PUSH (Push to Stack)
+
+    Purpose: Pushes a value onto the stack, decrementing the stack pointer.
+    Syntax: PUSH operand
+    Example: PUSH AX – Push the value in AX onto the stack.
+
+11. POP (Pop from Stack)
+
+    Purpose: Pops a value from the stack into a specified register or memory location, incrementing the stack pointer.
+    Syntax: POP operand
+    Example: POP AX – Pop a value from the stack into register AX.
+
+12. INC (Increment)
+
+    Purpose: Increases the value of the operand (typically a register or memory location) by one.
+    Syntax: INC operand
+    Example: INC AX – Increment the value in AX by 1.
+
+13. DEC (Decrement)
+
+    Purpose: Decreases the value of the operand (typically a register or memory location) by one.
+    Syntax: DEC operand
+    Example: DEC AX – Decrement the value in AX by 1.
+
+14. NOP (No Operation)
+
+    Purpose: Does nothing; it's often used for timing, alignment, or as a placeholder.
+    Syntax: NOP
+    Example: NOP – No operation (used for padding or delays).
+
+15. AND (Logical AND)
+
+    Purpose: Performs a bitwise AND operation between two operands and stores the result in the destination operand.
+    Syntax: AND destination, source
+    Example: AND AX, BX – Perform a bitwise AND between AX and BX, storing the result in AX.
+
+16. OR (Logical OR)
+
+    Purpose: Performs a bitwise OR operation between two operands and stores the result in the destination operand.
+    Syntax: OR destination, source
+    Example: OR AX, BX – Perform a bitwise OR between AX and BX, storing the result in AX.
+
+17. XOR (Exclusive OR)
+
+    Purpose: Performs a bitwise XOR operation between two operands and stores the result in the destination operand.
+    Syntax: XOR destination, source
+    Example: XOR AX, BX – Perform a bitwise XOR between AX and BX, storing the result in AX.
+
+18. SHL / SAL (Shift Left)
+
+    Purpose: Shifts the bits of the operand to the left by a specified number of positions (essentially multiplying by powers of two).
+    Syntax: SHL destination, count or SAL destination, count
+    Example: SHL AX, 1 – Shift the bits in AX left by 1 (multiply by 2).
+
+19. SHR (Shift Right)
+
+    Purpose: Shifts the bits of the operand to the right by a specified number of positions (essentially dividing by powers of two).
+    Syntax: SHR destination, count
+    Example: SHR AX, 1 – Shift the bits in AX right by 1 (divide by 2).
+
+20. NOP (No Operation)
+
+    Purpose: The NOP instruction does nothing and is often used to create small delays or as a filler for instruction alignment.
+    Syntax: NOP
+    Example: NOP – This instruction does not affect registers or flags.
+
+21. INT (Interrupt)
+
+    Purpose: Triggers a software interrupt, invoking the interrupt handler (commonly used for system calls or to invoke specific routines).
+    Syntax: INT interrupt_number
+    Example: INT 0x80 – This is commonly used in x86 systems to make a system call (on Linux).
+
+22. HLT (Halt)
+
+    Purpose: Stops the execution of the program, often used at the end of programs or in situations requiring termination.
+    Syntax: HLT
+    Example: HLT – Halt the execution of the program.
+
+23. FPU Instructions (Floating Point Unit Operations)
+
+    Assembly languages for x86 systems (e.g., using the x87 FPU) often include instructions like FADD, FSUB, FMUL, etc., for performing floating-point arithmetic operations. These instructions work similarly to regular ADD, SUB, MUL, but with floating-point numbers.
+    Example: FADD ST(0), ST(1) – Add the value in ST(1) to ST(0) in the FPU stack.
