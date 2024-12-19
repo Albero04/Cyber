@@ -6,3 +6,4 @@
 -  in radare2 con aaaa e poi afl vedo tutte le funzioni del file
 -  per chiamare radare2 si fa r2 ./<nomefile> o radare2 ./<nomefile>
 -  in radare2 con iz vedo tutte le stringhe 
+-  in radare2 we can inspect the writable sections of a program using the command iS 
