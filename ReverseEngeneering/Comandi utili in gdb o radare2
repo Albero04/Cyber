@@ -13,3 +13,4 @@
 -  se in gdb-peda dopo un breakpoint vedo che nello stack ci sono funzioni, posso chiamarle con (ad esempio): b* main – run - j* showEmails   
    (dove showEmails è una funzione di esempio)
 -  checksec --file=<nomefile> dice che tipo di sicurezza ha un file 
+-  in gdb info registers dà gli indirizzi dei registri, poi stampabili con x/s <indirizzoregistro>.
