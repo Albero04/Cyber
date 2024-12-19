@@ -1,0 +1,8 @@
+Un esempio di patching di programma tratto da un esercizio
+1. Fate clic su 'jnz': ora dovrebbe essere evidenziato; 
+2. Andate su: Edit > Patch program > Assemble (e si modifica singolarmente la linea di assembly che contiene jnz, cliccandola e premendo OK) 
+3. Scrivete "jz short loc_994";4. Premere OK.
+In questo modo abbiamo modificato manualmente il flusso di esecuzione del nostro programma. 
+Dobbiamo solo applicare questa patch al programma originale... e voilà!Per applicare la patch al programma, procedere come segue:
+1. Edit > Patch program > Apply patches to input file...
+2. Confermare l'operazione
