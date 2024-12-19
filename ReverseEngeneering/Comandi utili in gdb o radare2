@@ -7,3 +7,5 @@
 -  per chiamare radare2 si fa r2 ./<nomefile> o radare2 ./<nomefile>
 -  in radare2 con iz vedo tutte le stringhe 
 -  in radare2 we can inspect the writable sections of a program using the command iS 
+-  in gdb si può mettere un breakpoint e poi saltare ad un altra istruzione: esempio
+   b*0x0400845 e poi scrivere jump *main+35   ( il formato sarebbe *<nomefunz>+<offset>)
