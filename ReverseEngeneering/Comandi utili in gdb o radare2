@@ -1,3 +1,4 @@
+-  direttamente nel terminale posso fare strings <nomefile>
 -  Per mettere un breakpoint usare b* <indirizzo registro>
 -  Per vedere i breakpoints usare info break
 -  Per eliminarli usare del <numero del breakpoint>    il numero del breakpoint si vede usando info break
